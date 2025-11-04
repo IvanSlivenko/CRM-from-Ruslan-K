@@ -1,13 +1,17 @@
-const express  = require('express')
+const  app = require('./app')
+ const port = process.env.PORT || 5000
 
-const app = express()
+// роут для теста
+// app.get('/',(req,res, ) => {
+//     res.status(200).json({
+//         message: 'Working'
+//     })
+// })
 
-app.get('/',(req,res, ) => {
-    res.status(200).json({
-        message: 'Working'
-    })
-})
 
-app.listen(5000,  ()=>
-    console.log('Server running on port 5000'))
+
+
+
+app.listen(port,  ()=>
+    console.log(`Server running on port ${port}`))
 
