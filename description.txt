@@ -70,12 +70,24 @@ npm install express
 
 https://youtu.be/YzgEQ--hjME
 ---------------------------------------------------- Lesson 10
-
+npm install nodemon
 
 
 ----------------------------------------------------
 00 : 02 : 53
 
 
+https://youtu.be/1uf_U7FdOzU
+---------------------------------------------------- Lesson 11
+
+---------------------------------------------------
+00 : 04 : 14
+
 ====================================================
 node index.js - запуск сервера express
+or
+npm start
+
+start server with nodemon
+npm run server
+
