@@ -3,11 +3,10 @@ const router = express.Router()
 const controller = require('../controllers/order')
 
 
-//localhost: 5000/api/auth/login
-router.post('/login', controller.login)
 
-//localhost: 5000/api/auth/register
-router.post('/register', controller.register)
+router.get('/', controller.getAll)
+router.post('/', controller.create)
+
 
 
 module.exports = router

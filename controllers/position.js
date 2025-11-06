@@ -19,6 +19,3 @@ module.exports.update = function (req, res) {
 
 }
 
-// module.exports.getById = function (req, res) {
-//
-// }
