@@ -1,10 +1,21 @@
 const express  = require('express')
+const bodyParser = require('body-parser')
+const cors  = require('cors')
+const  morgan = require('morgan')
+
 const authRoutes = require('./routes/auth')
 const analyticsRoutes = require('./routes/analytics')
 const categoryRoutes = require('./routes/categories')
 const orderRoutes = require('./routes/order')
 const positionRoutes = require('./routes/position')
+
+
 const app = express()
+
+app.use(morgan('dev'))
+app.use(cors())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 //localhost: 5000/api/auth
 app.use('/api/auth', authRoutes)

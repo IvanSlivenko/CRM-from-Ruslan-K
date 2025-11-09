@@ -1,6 +1,11 @@
 module.exports.login = function(req, res) {
     res.status(200).json({
-        login: 'from controller'
+        // login: 'from controller',
+        login: {
+            email: req.body.email,
+            password: req.body.password
+        }
+        // login: req.body
     })
 }
 
