@@ -27,8 +27,28 @@ module.exports.register = async function (req, res) {
     })
 if(candidate){
     // Користувач існує, потрібно відправити помилку
-    }else {
-    // потрібно створити користувача
+    res.status(409).json({
+        message: ` Користувач з email : ${candidate} вже існує, спробуйте інший email`
+    })
+    } else {
+    //потрібно створити користувача
+    const user = new User({
+        email: req.body.email,
+        password: req.body.password
+})
+    try {
+        await user.save()
+        res.status(201).json({
+            message: `Створено користувача ${user}`
+        })
+    }catch (e){
+        // Опрацювати помилку
+    }
+
+
+
+    // user.save().then(()=>{console.log(`User ${user} created`)})
+
 }
 
 
