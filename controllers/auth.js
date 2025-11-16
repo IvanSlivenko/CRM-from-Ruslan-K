@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 const User = require('../models/User')
 
 module.exports.login = function(req, res) {
@@ -32,9 +33,12 @@ if(candidate){
     })
     } else {
     //потрібно створити користувача
+
+    const salt = bcrypt.genSaltSync(10)
+    const password = req.body.password
     const user = new User({
         email: req.body.email,
-        password: req.body.password
+        password: bcrypt.hashSync(password, salt)
 })
     try {
         await user.save()
@@ -43,6 +47,7 @@ if(candidate){
         })
     }catch (e){
         // Опрацювати помилку
+
     }
 
 
