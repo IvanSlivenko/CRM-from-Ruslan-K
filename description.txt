@@ -174,6 +174,20 @@ npm install jsonwebtoken
 ---------------------------------------------
 00 : 09 : 41
 
+------------------------------------------------------------------------ Lesson 21 ( 3.5 )
+https://youtu.be/N_MEGc6vhJw
+
+https://www.passportjs.org/
+https://www.passportjs.org/packages/passport-jwt/
+
+npm install passport
+npm install passport-jwt
+
+
+
+------------------------------------------------------------------------
+00 : 17 : 53
+
 
 ====================================================
 node index.js - запуск сервера express
@@ -183,6 +197,8 @@ npm start
 start server with nodemon
 npm run server
 
-=========================================================
+========================================================
+mongo
+
 https://cloud.mongodb.com/v2/6706c016256aab7ce709f5cf#/security/network/accessList
 =========================================================
