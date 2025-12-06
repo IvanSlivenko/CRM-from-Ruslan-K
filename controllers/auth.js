@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 const keys = require('../config/keys')
+const errorHandler = require('../utils/errorHandler')
 
 module.exports.login =  async function(req, res) {
     // var 1
@@ -51,16 +52,6 @@ module.exports.login =  async function(req, res) {
 }
 
 module.exports.register = async function (req, res) {
-    // res.status(200).json({
-    //     register: 'from controller'
-    // })
-
-// const user = new User({
-//     email: req.body.email,
-//     password: req.body.password
-// })
-//     user.save().then(()=>{console.log('User created')})
-
     const candidate = await User.findOne({
         email: req.body.email
     })
@@ -85,12 +76,10 @@ if(candidate){
         })
     }catch (e){
         // Опрацювати помилку
+        errorHandler(res, e)
 
     }
 
-
-
-    // user.save().then(()=>{console.log(`User ${user} created`)})
 
 }
 
