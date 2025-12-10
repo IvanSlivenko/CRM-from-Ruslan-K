@@ -11,7 +11,7 @@ const orderSchema = new Schema({
     order: {
         type: Number,
         required: true,
-        unique: true
+        // unique: true
 
     },
     // list(name, quantity, cost),
@@ -34,5 +34,8 @@ const orderSchema = new Schema({
     }
 
 })
+
+// Унікальність номера замовлення тільки в рамках користувача
+orderSchema.index({ user: 1, order: 1 }, { unique: true })
 
 module.exports = mongoose.model('orders', orderSchema)

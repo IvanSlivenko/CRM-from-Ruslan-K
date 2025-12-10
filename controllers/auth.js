@@ -26,7 +26,9 @@ module.exports.login =  async function(req, res) {
             //Генеруємо токен, паролі співпали
             const token = jwt.sign({
                 email: candidate.email,
-                userId: candidate.userId
+                // userId: candidate.userId,
+                userId: candidate._id
+
             },keys.jwt, {expiresIn: 60*60})
 
             res.status(200).json({
