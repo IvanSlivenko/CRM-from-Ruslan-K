@@ -3,15 +3,38 @@ const errorHandler  = require('../utils/errorHandler')
 
 //(get) localhost:5000/api/order?offset=2&limit=5
 module.exports.getAll = async function (req, res) {
-    const query = {}
+    const query = {
+        user: req.user._id
+    }
+    // Дата старту
+    if(req.query.start) {
+        query.date = {
+            //Більше чи дорівнює
+            $gte: req.query.start
+        }
+    }
+
+    if (req.query.end) {
+        if (!query.date) {
+            query.date = {}
+        }
+        query.date['$lte'] = req.query.end
+    }
+
+    if(req.query.order) {
+        query.order = +req.query.order
+    }
+
 
     try{
 
-        const order = await  Order
+        const orders = await  Order
             .find(query)
             .sort({date: -1})
             .skip(+req.query.offset)
             .limit(+req.query.limit)
+
+        res.status(200).json(orders)
     }
     catch(e) {
         errorHandler(res, e)

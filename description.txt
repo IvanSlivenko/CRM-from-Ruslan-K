@@ -238,8 +238,45 @@ https://youtu.be/u3DnrwzXd1k
 --------------------------------------------------------------------
 00 : 15 : 16
 
+------------------------------------------------------------------- Lesson 28 ( 5.1 ) angular
+https://youtu.be/_bNQ0GUXALs
+
+https://angular.dev/tools/cli/setup-local
+
+npm install -g @angular/cli
+
+ng new client
+
+-------------------------------------------------------------------
+00 : 00 : 00
+
+-------------------------------------------------------------------- Lesson 29 ( 5.2 )
+https://youtu.be/Aa065Ex7a5w
+
+npm install -D concurrently
+
+
+--------------------------------------------------------------------
+00 : 00 : 00
+
+-------------------------------------------------------------------- Lesson 30 ( 5.3 )
+https://youtu.be/8wlwk96eN0k
+
+https://github.com/vladilenm/fullstack-theme
+
+https://materializecss.com/
+
+
+--------------------------------------------------------------------
+00 : 00 : 00
+
+
+
+
 
 ====================================================
+node
+
 node index.js - запуск сервера express
 or
 npm start
@@ -252,6 +289,16 @@ mongo
 
 https://cloud.mongodb.com/v2/6706c016256aab7ce709f5cf#/security/network/accessList
 =========================================================
+angular
 
+npm run start
+
+or
+
+npm run client
+
+=========================================================
+start  server + client
+npm run dev
 
 
