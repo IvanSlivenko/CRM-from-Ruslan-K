@@ -293,7 +293,14 @@ ng g c login-page --skip-tests
 
 
 
+----------------------------------------------------------------- Lesson 33 ( 5.6 )
+https://youtu.be/lH59SFZhDr0
 
+ ng g c shared/layouts/auth-layout --skip-tests
+
+
+-----------------------------------------------------------------
+00 : 11 : 33
 
 
 
