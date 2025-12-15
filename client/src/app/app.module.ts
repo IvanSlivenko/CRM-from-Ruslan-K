@@ -12,7 +12,9 @@
 //   ],
 //   imports: [
 //     BrowserModule,
-//     AppRoutingModule
+//     AppRoutingModule,
+//     FormsModule,
+//     ReactiveFormsModule
 //   ],
 //   bootstrap: [AppComponent]
 // })
