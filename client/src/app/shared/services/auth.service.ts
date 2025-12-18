@@ -9,40 +9,42 @@ import {tap} from 'rxjs/operators';
 })
 export class AuthService {
 
-  private token: string |  null = null
+  private token: string | null = null
 
   constructor(private http: HttpClient) {
 
   }
 
-  register(){
-
+  register(user: User): Observable<User> {
+    return this.http.post<User>('/api/auth/register', user)
   }
 
-  login(user: User): Observable<{token: string}>{
-    return this.http.post<{token: string}>('/api/auth/login', user)
+  login(user: User): Observable<{ token: string }> {
+    return this.http.post<{ token: string }>('/api/auth/login', user)
       .pipe(
         tap(
           ({token}) => {
-            localStorage.setItem('auth-token',token )
+            localStorage.setItem('auth-token', token)
             this.setToken(token)
           }
         )
       )
   }
 
-  setToken(token: string | null){
+  setToken(token: string | null) {
     this.token = token;
   }
 
-  getToken(): string | null{
+  getToken(): string | null {
     return this.token
   }
 
-  isAuthenticated(): boolean{
+  isAuthenticated(): boolean {
     return !!this.token
   }
 
-  logout(){
+  logout() {
     this.setToken(null)
     localStorage.removeItem('auth-token');
+  }
+}
