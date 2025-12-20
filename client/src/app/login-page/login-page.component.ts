@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {AuthService} from '../shared/services/auth.service';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {MaterialService} from '../shared/classes/material.service';
 
 @Component({
   selector: 'app-login-page',
@@ -47,9 +48,11 @@ export class LoginPageComponent implements  OnDestroy{
   ngOnInit(){
     this.route.queryParams.subscribe((params: Params) => {
       if(params['registered']){
-        // Тепер ви можете зайти в систему, використовуючи свої данні
+        MaterialService.toast('Тепер ви можете зайти в систему, використовуючи свої данні')
       }else if(params['accessDenied']) {
-        // Для початку вам потрібно авторизуватись
+        MaterialService.toast('Для початку вам потрібно авторизуватись')
+      } else if (params['sessionFailed']){
+        MaterialService.toast('Вам  потрібно увійти у систему знову')
       }
     })
   }
@@ -78,11 +81,13 @@ export class LoginPageComponent implements  OnDestroy{
 
      this.aSub =  this.auth.login(user).subscribe({
         next: (res) => {
-          console.log('Login Success')
-          this.router.navigate(['/overveiw'])
+          MaterialService.toast('Ви увійшли в систему')
+          // console.log('Login Success')
+          this.router.navigate(['/overview'])
         },
         error: (err) => {
-          console.warn(err);
+          MaterialService.toast(err.error.message)
+          // console.warn(err);
           this.form.get('password')?.reset()
           this.form.enable()
         }

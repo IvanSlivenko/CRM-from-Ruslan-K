@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
+import {AuthService} from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,17 @@ import {RouterOutlet} from '@angular/router';
   template: '<router-outlet></router-outlet>',
   // styleUrl: './app.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   // protected readonly title = signal('client');
+  constructor(private auth: AuthService) {
+  }
+
+  ngOnInit() {
+    const potentialToken = localStorage.getItem('auth-token');
+    if (potentialToken !==  null) {
+      this.auth.setToken(potentialToken)
+    }
+  }
 }
 
 

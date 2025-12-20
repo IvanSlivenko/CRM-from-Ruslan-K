@@ -45,7 +45,7 @@ module.exports.login =  async function(req, res) {
     } else {
         // користувача не має
         res.status(404).json({
-            message: `Користувача з емайл ${req.body.email} не знайдено`
+            message: `Користувача з таким email не знайдено`
         })
     }
 
@@ -60,7 +60,7 @@ module.exports.register = async function (req, res) {
 if(candidate){
     // Користувач існує, потрібно відправити помилку
     res.status(409).json({
-        message: ` Користувач з email : ${candidate} вже існує, спробуйте інший email`
+        message: ` Користувач з таким email  вже існує, спробуйте інший email`
     })
     } else {
     //потрібно створити користувача
